@@ -1,0 +1,14 @@
+# Maven build output
+target/
+
+# Evaluation workspace generated at runtime
+workspace/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
