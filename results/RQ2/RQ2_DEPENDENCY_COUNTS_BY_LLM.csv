@@ -1,0 +1,6 @@
+llm,ground_truth_unique_dependencies,generated_unique_dependencies,tp,fp,fn
+claude,12421,10867,6093,4774,6328
+deepseek,12421,7864,5062,2802,7359
+gemini,12421,7335,4982,2353,7439
+gpt,12421,8138,5175,2963,7246
+qwen,12421,7693,5211,2482,7210

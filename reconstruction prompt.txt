@@ -1,0 +1,156 @@
+
+Prompt for context reconstruction across LLM’s 
+You are acting as a repository-aware Java context reconstruction engineer.
+Your task is to reconstruct isolated Java methods from CodeSearchNet into compilable and executable Java programs using the relevant context from their original GitHub repository.
+The objective is not merely to make the method compile.
+The objective is to preserve the original method exactly and reconstruct the real surrounding dependency structure as faithfully as possible.
+A small wrapper that compiles by removing, replacing, simplifying, or ignoring important dependencies is not acceptable.
+
+Input
+I will provide Java methods from  GitHub repository.
+Each method may include:
+•	method number
+•	repository name
+•	repository URL
+•	commit, revision, or tag
+•	original method snippet
+
+Main Requirements
+For every target method:
+1.	Preserve the complete original method exactly as supplied.
+2.	Inspect the exact GitHub repository and revision.
+3.	Locate the original declaring class and related source files.
+4.	Add all context genuinely required by that method.
+5.	Preserve real method calls, fields, types, constructors, and class relationships.
+6.	Follow repository-owned dependencies for the method recursively.
+7.	The original CodeSearchNet method must remain completely unchanged 
+
+
+Before writing the reconstructed code whatever is required for specific method :
+1.	Check the exact repository and revision.
+2.	Locate the original source file.
+3.	Read the complete declaring class.
+
+	Identify all required:
+•	imports
+•	fields
+•	constructors
+•	helper methods
+•	constants
+•	nested classes
+•	enums
+•	interfaces
+•	superclasses
+•	inherited methods
+•	annotations
+•	repository utility classes and external library types
+
+Follow helper-method and class dependencies recursively.
+Continue until the method has the relevant context needed for accurate compilation and meaningful execution.
+Include the complete context required by the specific method, even when that context is lengthy.
+
+Original Method Preservation
+The target CodeSearchNet method must be included exactly as supplied inside the reconstructed Java program.
+
+The following rule is mandatory:
+The surrounding context must adapt to the original method. The original method must not be altered to fit the surrounding context.
+Do not:
+•	shorten the method
+•	remove branches
+•	reorder statements
+•	rename variables
+•	change expressions
+•	change parameters
+•	add parameters
+•	remove parameters
+•	change the return type
+•	change declared exceptions
+•	remove original method calls
+•	replace repository calls with print statements
+•	comment out original statements
+•	replace meaningful types with Object
+•	add fake conditions
+•	insert helper code into the method
+•	insert setup code into the method
+•	insert test logic into the method
+•	insert new output statements into the method
+•	convert an instance method to static for convenience
+
+
+Context to Add
+Add all relevant context required by the method, like:
+•	explicit imports
+•	enclosing class
+•	fields
+•	constructors
+•	helper methods
+•	constants
+•	enums
+•	interfaces
+•	nested classes
+•	relevant superclass behaviour
+•	inherited methods
+•	exception classes
+•	external dependencies
+
+Dependency Preservation
+The reconstructed program must retain the target method’s real dependency relationships.
+A lightweight replacement must preserve  all components needed  and behaviour actually required by the target method.
+
+For every helper method that is directly called by the target method:
+•	Locate its original implementation.
+•	Identify its declaring class.
+•	Include the real implementation .
+•	Inspect its fields and helper calls.
+•	Resolve its own dependencies.
+•	Repeat recursively.
+
+Lightweight Adaptations
+Use lightweight adaptations when the real external dependency cannot reasonably be included or executed. External dependencies that cant be added in standalone file should be stubbed to preserve context
+
+Examples include:
+
+•	unavailable historical artifact
+•	proprietary dependency and external imports
+•	missing generated source
+•	unavailable native component
+•	unavailable database
+•	unavailable server
+•	unsupported old runtime
+•	operating-system-specific service
+•	graphical framework unavailable in the environment
+•	repository artifact no longer obtainable
+•	external API requiring credentials
+•	very large platform runtime that cannot be reproduced
+
+Every adaptation must preserve as much as possible:
+•	class name
+•	constructor shape
+•	method names
+•	field names
+•	parameter relationships
+•	return types
+•	state changes
+•	call relationships
+•	observable behaviour
+
+
+Java File Requirements
+Create one primary Java standalone file per method:
+method_<method-number>_<repository-name>_gemini.java
+
+Main Method
+Add a meaningful executable main method.
+It must:
+•	Create realistic input objects.
+•	Initialize required fields.
+•	Configure dependencies.
+•	Invoke the original target method.
+•	Exercise important branches where practical.
+•	Print observable results.
+•	Avoid passing null merely to bypass logic.
+•	Avoid fake success messages.
+•	Catch only expected exceptions.
+•	Explain through output what behaviour was exercised.
+Use multiple scenarios when the target method contains several major branches.
+

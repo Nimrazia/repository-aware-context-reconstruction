@@ -1,0 +1,6 @@
+llm,methods,compile_pass,execution_pass,target_resolved,target_invoked,instruction_coverage_pct,branch_coverage_pct,line_coverage_pct
+claude,100,100,98,100,99,62.65,51.3,67.83
+deepseek,100,100,99,100,98,51.01,36.69,53.43
+gemini,100,100,99,100,99,50.01,34.6,52.1
+gpt,100,100,99,100,100,48.34,35.25,52.35
+qwen,100,100,99,100,89,38.06,27.24,40.73

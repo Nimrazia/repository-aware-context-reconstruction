@@ -1,0 +1,6 @@
+llm,methods,spearman_rho,p_value,significant_at_0_05
+claude,100,0.007146,0.943745,False
+deepseek,100,-0.043169,0.669773,False
+gemini,100,-0.154532,0.124752,False
+gpt,100,-0.138211,0.170272,False
+qwen,100,-0.104362,0.301452,False
